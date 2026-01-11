@@ -1,10 +1,8 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const cors = require('cors')
 
 app.use(express.json())
-app.use(cors())
 app.use(express.static('dist'))
 
 morgan.token('data', (req,res) => JSON.stringify(req.body))
@@ -85,6 +83,21 @@ app.post('/api/persons', (req, res) => {
     }
 
     persons = persons.concat(person)
+
+    res.json(person)
+})
+app.put('/api/persons/:id', (req, res) => {
+
+
+    const body = req.body
+
+    const person = {
+        name: body.name,
+        number: body.number,
+        id: body.id
+    }
+
+    persons = persons.map(p => p.id !== body.id ? p : person)
 
     res.json(person)
 })
