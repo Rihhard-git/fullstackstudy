@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Rain Veskus",
+    "dateOfBirth": "1992-09-15",
+    "gender": "male",
+    "ssn": "150992-2222",
+    "occupation": "student"
+}
