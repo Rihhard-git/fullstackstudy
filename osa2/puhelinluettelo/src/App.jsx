@@ -36,15 +36,26 @@ const App = () => {
       name: newName,
       number: newNumber
     }
+
+    console.log('adding new person with data:', personObject)
     
     if(persons.map(p => p.name).includes(newName)) {
 
       const person = persons.find(p => p.name === newName)
+      const changedPerson = {...person, number: newNumber}
+
+      console.log(changedPerson)
+
+      console.log(person)
 
       if (confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
+        console.log(`trying to update ${person.name} 's number`)
+        console.log(person.id, changedPerson)
+
         personService
-          .update(person.id, personObject)
+          .update(person.id, changedPerson)
           .then(returnedPerson => {
+            console.log('update was successful')
             setNotificationType('notification')
             setNotificationMessage(`'${person.name}'s number was updated successfully`)
             setPersons(persons.map(p => p.id !== person.id ? p : returnedPerson))
@@ -52,7 +63,7 @@ const App = () => {
               setNotificationMessage(null)
             }, 3000)
           })
-          .catch(error => {
+          /* .catch(error => {
             setNotificationType('error')
             setNotificationMessage(
               `the person '${person.name}' was already deleted from server`
@@ -60,8 +71,8 @@ const App = () => {
             setTimeout(() => {
               setNotificationMessage(null)
             }, 3000)
-            setPersons(persons.filter(p => p.id !== id))
-          })
+            setPersons(persons.filter(p => p.id !== person.id))
+          }) */
           setNewName('')
           setNewNumber('')
       }

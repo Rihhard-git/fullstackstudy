@@ -15,7 +15,9 @@ const deletePerson = (id) => {
 }
 
 const update = (id, newObject) => {
+    console.log(`using update service for id ${id} and new data is: ${newObject}`)
     const req = axios.put(`${baseUrl}/${id}`, newObject)
+    console.log(req)
     return req.then(res => res.data)
 }
 
