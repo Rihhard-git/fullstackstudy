@@ -2,6 +2,7 @@ const js = require('@eslint/js')
 const react = require('eslint-plugin-react')
 const jest = require('eslint-plugin-jest')
 const globals = require('globals')
+const stylisticJs = require('@stylistic/eslint-plugin')
 
 module.exports = [
   {
@@ -39,7 +40,8 @@ module.exports = [
     files: ['src/**/*.{js,jsx}', 'test/**/*.{js,jsx}'],
     plugins: {
       react,
-      jest
+      jest,
+      stylisticJs
     },
     languageOptions: {
       ecmaVersion: 2018,
@@ -70,7 +72,6 @@ module.exports = [
       'no-trailing-spaces': 'error',
       'object-curly-spacing': ['error', 'always'],
       'arrow-spacing': ['error', { 'before': true, 'after': true }],
-      'no-console': 'error',
       'react/prop-types': 0
     }
   }

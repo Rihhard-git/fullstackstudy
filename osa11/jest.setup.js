@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { TextEncoder, TextDecoder } = require('util')
 
 global.TextEncoder = TextEncoder
