@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Date
         run: |
-          echo date
-  ls -l:
+          date
+  ls-l:
     runs-on: ubuntu-latest
     steps:
       - name: Ls- l
         run: |
-          echo ls -l
+          ls -l
