@@ -1,0 +1,26 @@
+name: Hello World!
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello World!"
+  date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Date
+        run: |
+          date
+  ls-l:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ls- l
+        run: |
+          ls -l
