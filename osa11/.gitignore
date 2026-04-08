@@ -1,6 +1,5 @@
 dist/
 node_modules/
-./github/workflows
 
 # Playwright
 /test-results/
