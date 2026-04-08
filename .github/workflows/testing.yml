@@ -12,16 +12,8 @@ jobs:
       run:
         working-directory: osa11
     steps:
-      - uses: actions/checkout@v4
-      - name: github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: commits
-        env:
-          COMMITS: ${{ toJson(github.event.commits) }}
-        run: echo "$COMMITS"
+      - uses: actions/checkout@v6
       - name: commit messages
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        run: echo "$COMMIT_MESSAGES"
+        run: echo "$COMMIT_MESSAGES" contains(COMMIT_MESSAGE, '#skip')
