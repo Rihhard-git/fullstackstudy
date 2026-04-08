@@ -16,5 +16,6 @@ jobs:
       - name: commit messages
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+          MESSAGES_TO_STRING: ${{ toJson(github.event.commits.*.message) }}
           INCLUDES: ${{ contains('skipping some stuff', '#skip') }}
-        run: echo "$COMMIT_MESSAGES $INCLUDES" 
+        run: echo "$COMMIT_MESSAGES $INCLUDES $MESSAGES_TO_STRING" 
