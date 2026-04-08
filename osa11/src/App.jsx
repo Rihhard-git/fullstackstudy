@@ -11,7 +11,7 @@ const mapResults = (({ results }) => results.map(({ url, name }) => ({
   name,
   id: parseInt(url.match(/\/(\d+)\//)[1])
 })))
-
+// added weird paragraph for skipping
 
 const App = () => {
   const match = useMatch('/pokemon/:name')
