@@ -46,6 +46,7 @@ jobs:
       run:
         working-directory: osa11
     steps:
+      - uses: actions/checkout@v6
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' }}
         uses: anothrNick/github-tag-action@1.75.0
