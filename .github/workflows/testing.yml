@@ -12,6 +12,7 @@ jobs:
       run:
         working-directory: osa11
     steps:
+      - uses: actions/checkout@v6
       - uses: sarisia/actions-status-discord@v1
         if: always()
         with:
