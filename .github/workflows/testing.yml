@@ -12,10 +12,7 @@ jobs:
       run:
         working-directory: osa11
     steps:
-      - uses: actions/checkout@v6
-      - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-          MESSAGES_TO_STRING: ${{ join(toJson(github.event.commits.*.message)) }}
-          INCLUDES: ${{ contains(toJson(github.event.commits.*.message), '#skip') }}
-        run: echo "$COMMIT_MESSAGES $INCLUDES $MESSAGES_TO_STRING" 
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
