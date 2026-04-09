@@ -13,8 +13,8 @@ jobs:
         working-directory: osa11
     steps:
       - uses: actions/checkout@v6
-      - name: discord result
-        uses: sarisia/actions-status-discord@v1
+      
+      - uses: sarisia/actions-status-discord@v1
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
